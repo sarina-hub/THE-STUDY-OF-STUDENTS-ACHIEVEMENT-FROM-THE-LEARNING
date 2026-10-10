@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>สมองครบส่วน กับผลสัมฤทธิ์วิชาฟิสิกส์ เรื่อง การเคลื่อนที่</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#0F766E;--a:#FBBF24;--s:#F0FDFA;--s2:#CCFBF1;--ink:#134E4A;--k:1}
+*{box-sizing:border-box}
+body{margin:0;height:100vh;height:100dvh;background:var(--s);font-family:'Kanit',system-ui,sans-serif;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+#w{width:calc(1280px*var(--k));height:calc(720px*var(--k))}
+#st{width:1280px;height:720px;transform:scale(var(--k));transform-origin:0 0;position:relative}
+.sl{position:absolute;inset:0;background:#fff;border-radius:32px;box-shadow:0 8px 32px rgba(15,118,110,.13);opacity:0;visibility:hidden;transition:opacity .3s}
+.sl.on{opacity:1;visibility:visible}
+.tag{position:absolute;left:48px;top:36px;background:var(--s2);color:var(--p);font-weight:500;font-size:20px;padding:5px 18px;border-radius:999px}
+.ic{position:absolute;right:48px;top:30px;width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#0F766E,#14B8A6);display:grid;place-items:center;transition:transform .25s}
+.ic:hover,.cc:hover{transform:scale(1.14)}
+svg.i{width:58%;height:58%;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+h2,h1{position:absolute;left:48px;right:160px;margin:0;font-weight:700;line-height:1.25}
+h2{top:88px;font-size:46px}
+h1{top:96px;font-size:44px}
+.g{background:linear-gradient(90deg,#0F766E 15%,#F59E0B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bd{position:absolute;left:48px;right:48px;top:200px;bottom:66px;display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}
+.c{border-radius:24px;padding:24px 28px;font-size:25px;line-height:1.5}
+.sl.on .c{animation:up .6s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*.15s + .1s)}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes grow{from{width:0}}
+.d{background:var(--p);color:#fff}.m{background:var(--s2)}.l{background:var(--s);border:2px solid var(--s2)}.y{background:var(--a);color:#422006}
+.c b{font-weight:600}
+.cc{width:54px;height:54px;border-radius:50%;background:var(--p);display:grid;place-items:center;margin-bottom:12px;transition:transform .25s;color:#fff;font-weight:700;font-size:26px}
+.d .cc{background:rgba(255,255,255,.2)}.y .cc{background:#B45309}
+.big{font-size:68px;font-weight:700;line-height:1.05}
+.sm{font-size:21px;opacity:.85}
+.pn{position:absolute;right:48px;bottom:20px;font-size:18px;color:#5b8f8a}
+.bar{display:grid;grid-template-columns:190px 1fr 70px;align-items:center;gap:14px;margin:18px 0}
+.bar div{height:44px;background:#fff;border-radius:14px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:14px;background:var(--p);width:var(--w)}
+.bar.o i{background:var(--a)}
+.sl.on .bar i{animation:grow 1s .6s cubic-bezier(.2,.7,.2,1) both}
+.bar em{font-style:normal;font-weight:700}
+nav{height:60px;display:flex;align-items:center;gap:16px;color:var(--p);font-weight:500}
+nav button{width:44px;height:44px;border-radius:50%;border:0;background:var(--p);color:#fff;font:700 22px Kanit,sans-serif;cursor:pointer}
+nav button:focus-visible{outline:3px solid var(--a)}
+@media (prefers-reduced-motion:reduce){.sl.on .c,.sl.on .bar i{animation:none}}
+</style>
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+<symbol id="zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+<symbol id="bulb" viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></symbol>
+<symbol id="brain" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></symbol>
+<symbol id="layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+<symbol id="users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="bars" viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+<symbol id="smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></symbol>
+<symbol id="ok" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="tg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+<symbol id="music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+</svg>
+
+<div id="w"><div id="st">
+
+<!-- 1 -->
+<section class="sl on">
+<div class="tag">งานวิจัยในชั้นเรียน</div>
+<div class="ic"><svg class="i"><use href="#zap"/></svg></div>
+<h1>การศึกษาผลสัมฤทธิ์ทางการเรียนของนักเรียนที่ได้รับการจัดกิจกรรมการเรียนรู้ตาม<span class="g">รูปแบบสมองครบส่วน</span> วิชาวิทยาศาสตร์พื้นฐาน (ฟิสิกส์) เรื่อง การเคลื่อนที่</h1>
+<div class="bd g3" style="top:335px">
+<div class="c d" style="--i:1"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#book"/></svg></div><b>นำเสนอโดย</b><br>นางสาวซารีนา อุศมา<div class="sm">ครูโรงเรียนหาดใหญ่วิทยาลัยสมบูรณ์กุลกันยา</div></div>
+<div class="c y" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#users"/></svg></div><b>เรียน</b><br>คณะครูประจำโรงเรียน<div class="sm">มาแลกเปลี่ยนไอเดียการสอนกันค่ะ</div></div>
+<div class="c l" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#tg"/></svg></div><b>ที่มาของงานวิจัย</b><div class="sm" style="opacity:1">อัญชฏา พัวไพบูลย์ และ รัชภาคย์ จิตต์อารี วารสารวิจัยทางการศึกษา มศว ปีที่ 14 ฉบับที่ 1 (2562)</div></div>
+</div>
+<div class="pn">1 / 10</div>
+</section>
+
+<!-- 2 -->
+<section class="sl">
+<div class="tag">ที่มา</div>
+<div class="ic"><svg class="i"><use href="#bulb"/></svg></div>
+<h2>สอนวิทยาศาสตร์ <span class="g">ไม่มีแบบไหนดีที่สุด</span></h2>
+<div class="bd g3">
+<div class="c m" style="--i:1"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#layers"/></svg></div>รูปแบบการสอนมีหลากหลาย ครูต้องเลือกให้เหมาะกับ<b>นักเรียน เนื้อหา และอุปกรณ์</b></div>
+<div class="c d" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#brain"/></svg></div>การทดลองและการวิเคราะห์ใช้<b>สมองซีกซ้าย</b>เป็นหลัก ใช้ซีกเดียวมากไปอาจเครียดสูง</div>
+<div class="c y" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#users"/></svg></div>จึงลองจัดกิจกรรมให้ใช้<b>สมองทั้งสองซีก</b> กับนักเรียนที่ไม่เน้นวิทยาศาสตร์</div>
+</div>
+<div class="pn">2 / 10</div>
+</section>
+
+<!-- 3 -->
+<section class="sl">
+<div class="tag">พื้นฐานความรู้</div>
+<div class="ic"><svg class="i"><use href="#brain"/></svg></div>
+<h2>สมองสองซีก <span class="g">ทำงานต่างกัน</span></h2>
+<div class="bd g2" style="grid-template-rows:1fr auto">
+<div class="c d" style="--i:1"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#bars"/></svg></div><b>ซีกซ้าย: ส่วนของการตัดสิน</b><div class="sm" style="opacity:1">ภาษา อ่าน-เขียน ตัวเลข การใช้เหตุผล และทักษะวิทยาศาสตร์</div></div>
+<div class="c m" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#music"/></svg></div><b>ซีกขวา: ส่วนของการสร้างสรรค์</b><div class="sm" style="opacity:1">ภาพสามมิติ ศิลปะ ดนตรี และจินตนาการ</div></div>
+<div class="c y" style="--i:3;grid-column:1/3;font-size:26px"><b>คิดให้ได้ผลดีที่สุด ต้องใช้สองซีกประสานกัน</b> ไม่ว่าจะเป็นการคิดเชิงเหตุผลหรือความคิดสร้างสรรค์</div>
+</div>
+<div class="pn">3 / 10</div>
+</section>
+
+<!-- 4 -->
+<section class="sl">
+<div class="tag">รูปแบบสมองครบส่วน (สคส.)</div>
+<div class="ic"><svg class="i"><use href="#layers"/></svg></div>
+<h2>สมองครบส่วน <span class="g">3 ขั้นตอน</span></h2>
+<div class="bd g3">
+<div class="c m" style="--i:1"><div class="cc">1</div><b>ก่อนเรียน</b><div class="sm" style="opacity:1">หลับตาฟังเพลงให้ผ่อนคลาย แล้วจินตนาการจากภาพคลุมเครือ ราว 5 นาที เพื่อปลุกสมองซีกขวา</div></div>
+<div class="c d" style="--i:2"><div class="cc">2</div><b>เรียนตามปกติ</b><div class="sm" style="opacity:1">กิจกรรมแบบ สสวท. คือนำเข้าสู่บทเรียน สอน อภิปรายและสรุป</div></div>
+<div class="c y" style="--i:3"><div class="cc">3</div><b>หลังเรียน</b><div class="sm" style="opacity:1">ทบทวนและขยายความรู้ให้เข้าใจลึกขึ้น ได้ใช้สมองซีกซ้ายเต็มที่</div></div>
+</div>
+<div class="pn">4 / 10</div>
+</section>
+
+<!-- 5 -->
+<section class="sl">
+<div class="tag">วิธีวิจัย</div>
+<div class="ic"><svg class="i"><use href="#users"/></svg></div>
+<h2>วิธีวิจัย <span class="g">ทำอย่างไร</span></h2>
+<div class="bd g3">
+<div class="c d" style="--i:1"><div class="big">40 <span style="font-size:28px">คน</span></div><b>นักเรียน ม.5</b><div class="sm">โรงเรียนสาธิตในกรุงเทพฯ เลือกแบบเจาะจง แบ่งกลุ่มทดลอง 20 / กลุ่มควบคุม 20</div></div>
+<div class="c m" style="--i:2"><div class="big">12 <span style="font-size:28px">คาบ</span></div><b>เรื่องการเคลื่อนที่ 4 แผน</b><div class="sm">เส้นตรง วิถีโค้ง วงกลม และฮาร์มอนิกอย่างง่าย เทียบ สคส. กับคู่มือครู สสวท.</div></div>
+<div class="c y" style="--i:3"><div class="big">20 <span style="font-size:28px">ข้อ</span></div><b>แบบทดสอบ 4 ตัวเลือก</b><div class="sm" style="opacity:.9">ใช้ชุดเดียวกันก่อน-หลังเรียน ผ่านผู้เชี่ยวชาญ 3 ท่าน ความเชื่อมั่น .722 และมีแบบวัดความพึงพอใจ 15 ข้อ</div></div>
+</div>
+<div class="pn">5 / 10</div>
+</section>
+
+<!-- 6 -->
+<section class="sl">
+<div class="tag">ผลการวิจัย 1</div>
+<div class="ic"><svg class="i"><use href="#bars"/></svg></div>
+<h2>หลังเรียน <span class="g">สคส. มาแรงกว่า</span> คู่มือ สสวท.</h2>
+<div class="bd" style="grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr">
+<div class="c m" style="--i:1;grid-row:1/3"><b>คะแนนเฉลี่ยหลังเรียน (เต็ม 20)</b>
+<div class="bar o" style="margin-top:40px"><span>สมองครบส่วน</span><div><i style="--w:59%"></i></div><em>11.80</em></div>
+<div class="bar"><span>คู่มือครู สสวท.</span><div><i style="--w:48.25%"></i></div><em>9.65</em></div>
+<div class="sm" style="margin-top:34px">ส่วนเบี่ยงเบนมาตรฐาน 3.53 และ 1.31</div></div>
+<div class="c d" style="--i:2"><b>t = 2.55, p = .0075</b><div class="sm">ทดสอบทางเดียว แตกต่างอย่างมีนัยสำคัญที่ระดับ .01</div></div>
+<div class="c y" style="--i:3"><div class="big">+2.15</div><b>คะแนนที่ต่างกัน</b></div>
+</div>
+<div class="pn">6 / 10</div>
+</section>
+
+<!-- 7 -->
+<section class="sl">
+<div class="tag">ผลการวิจัย 2</div>
+<div class="ic"><svg class="i"><use href="#up"/></svg></div>
+<h2>ก่อนเรียน → หลังเรียน <span class="g">ดีขึ้นทั้งคู่</span></h2>
+<div class="bd g3">
+<div class="c d" style="--i:1"><b>กลุ่มสมองครบส่วน</b><div class="big" style="margin:14px 0 8px">6.30 → 11.80</div><div class="sm">t = 14.727, p &lt; .01<br>เพิ่มขึ้น 5.50 คะแนน</div></div>
+<div class="c m" style="--i:2"><b>กลุ่มคู่มือครู สสวท.</b><div class="big" style="margin:14px 0 8px">5.85 → 9.65</div><div class="sm">t = 16.088, p &lt; .01<br>เพิ่มขึ้น 3.80 คะแนน</div></div>
+<div class="c y" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#ok"/></svg></div><b>สองแบบช่วยให้คะแนนสูงขึ้นจริง</b><div class="sm" style="opacity:1">แต่กลุ่ม สคส. เพิ่มขึ้นมากกว่า</div></div>
+</div>
+<div class="pn">7 / 10</div>
+</section>
+
+<!-- 8 -->
+<section class="sl">
+<div class="tag">ความพึงพอใจ</div>
+<div class="ic"><svg class="i"><use href="#smile"/></svg></div>
+<h2>นักเรียน <span class="g">พึงพอใจมาก</span></h2>
+<div class="bd" style="grid-template-columns:1fr 1.25fr;grid-template-rows:1fr 1fr">
+<div class="c d" style="--i:1;grid-row:1/3"><div class="big" style="font-size:96px;margin-top:20px">3.66</div><b>จากเต็ม 5 ระดับมาก</b><div class="sm">S.D. 0.58 ระดับมากถึง 14 จาก 15 ข้อ</div></div>
+<div class="c m" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#ok"/></svg></div><b>คะแนนสูงสุด:</b> เหมาะกับธรรมชาติของวิชา (4.00) และไม่ทำให้เบื่อ (3.90)</div>
+<div class="c y" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#clock"/></svg></div><b>ต่ำสุด:</b> ความเหมาะสมของเวลา (3.40) ระดับปานกลางข้อเดียว</div>
+</div>
+<div class="pn">8 / 10</div>
+</section>
+
+<!-- 9 -->
+<section class="sl">
+<div class="tag">สรุปผล</div>
+<div class="ic"><svg class="i"><use href="#ok"/></svg></div>
+<h2>สรุปผล <span class="g">สั้นๆ ได้ใจความ</span></h2>
+<div class="bd g3" style="grid-template-rows:1fr auto">
+<div class="c d" style="--i:1"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#bars"/></svg></div><b>สคส. สูงกว่า สสวท.</b><div class="sm">คะแนนหลังเรียนต่างกันอย่างมีนัยสำคัญที่ .01</div></div>
+<div class="c m" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#up"/></svg></div><b>หลังเรียนสูงกว่าก่อนเรียน</b><div class="sm">ทั้งสองกลุ่ม ที่ระดับ .01</div></div>
+<div class="c l" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#smile"/></svg></div><b>พึงพอใจระดับมาก</b><div class="sm">ค่าเฉลี่ยรวม 3.66</div></div>
+<div class="c y" style="--i:4;grid-column:1/4;font-size:22px;padding:16px 28px"><b>ข้อสังเกต:</b> ตัวอย่างมีเพียง 40 คน เลือกแบบเจาะจง และเป็นนักเรียนที่ไม่เน้นวิทย์ จึงควรอ่านผลอย่างระมัดระวัง</div>
+</div>
+<div class="pn">9 / 10</div>
+</section>
+
+<!-- 10 -->
+<section class="sl">
+<div class="tag">นำไปใช้</div>
+<div class="ic"><svg class="i"><use href="#book"/></svg></div>
+<h2>เอาไปลอง <span class="g">ใช้ในห้องเรียน</span> ได้เลย</h2>
+<div class="bd g3" style="grid-template-rows:1fr auto">
+<div class="c m" style="--i:1"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#users"/></svg></div><b>บอกขั้นตอนก่อน</b><div class="sm" style="opacity:1">ชี้แจงกิจกรรมขั้นที่ 1 ให้นักเรียนรู้ล่วงหน้า และขอให้นิ่งสงบ ไม่คุยเล่น</div></div>
+<div class="c d" style="--i:2"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#music"/></svg></div><b>เลือกเพลงและภาพ</b><div class="sm">สำรวจเพลงที่นักเรียนชอบ และเลือกภาพที่โยงกับเนื้อหาในคาบนั้น</div></div>
+<div class="c l" style="--i:3"><div class="cc"><svg class="i" style="width:60%;height:60%"><use href="#tg"/></svg></div><b>เตรียมสื่อรูปธรรม</b><div class="sm" style="opacity:1">ของจริงที่จับต้องได้ ช่วยกระตุ้นความอยากรู้</div></div>
+<div class="c y" style="--i:4;grid-column:1/4;font-size:26px;padding:16px 28px"><b>ขอบคุณค่ะ</b> ยินดีรับคำถามและแลกเปลี่ยนความเห็นกันนะคะ</div>
+</div>
+<div class="pn">10 / 10</div>
+</section>
+
+</div></div>
+
+<nav><button id="pv" aria-label="ก่อนหน้า">‹</button><span id="ct">1 / 10</span><button id="nx" aria-label="ถัดไป">›</button></nav>
+
+<script>
+const S=[...document.querySelectorAll('.sl')],ct=document.getElementById('ct');let n=0;
+function go(i){n=Math.max(0,Math.min(S.length-1,i));S.forEach((s,k)=>s.classList.toggle('on',k===n));ct.textContent=(n+1)+' / '+S.length}
+function fit(){document.documentElement.style.setProperty('--k',Math.min(innerWidth*.97/1280,(innerHeight-66)/720))}
+fit();addEventListener('resize',fit);
+pv.onclick=()=>go(n-1);nx.onclick=()=>go(n+1);
+addEventListener('keydown',e=>{
+ if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(n+1)}
+ else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(n-1)}
+ else if(e.key==='Home')go(0);else if(e.key==='End')go(S.length-1);
+ else if(e.key==='f'&&document.documentElement.requestFullscreen)document.documentElement.requestFullscreen()});
+let x0=null;addEventListener('touchstart',e=>x0=e.touches[0].clientX);
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)go(n+(d<0?1:-1));x0=null});
+</script>
+</body>
+</html>
